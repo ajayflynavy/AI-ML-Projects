@@ -1,0 +1,48 @@
+version: "2.0"
+
+stories:
+
+- story: Welcome message
+  steps:
+  - intent: hello_safebot
+  - action: utter_welcome_message
+
+- story: predict potential acc level affirm
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: select_potential_accident_level
+  - action: utter_user_input_description
+  - intent: predict_description
+  - action: action_utter_prediction
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: predict potential acc level deny
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: select_potential_accident_level
+  - action: utter_user_input_description
+  - intent: predict_description
+  - action: action_utter_prediction
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_apology
+  - intent: predict_description
+  - action: action_utter_prediction
+
+- story: predict potential acc level 2
+  steps:
+  - intent: predict_description
+  - action: action_utter_prediction
+  - intent: want_to_search_again
+  - action: utter_want_search_again
+
+- story: want to continue
+  steps:
+  - intent: want_to_search_again
+  - action: utter_want_search_again
+  - intent: predict_description
+  - action: action_utter_prediction

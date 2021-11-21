@@ -1,0 +1,53 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - want_to_search_again
+  - select_potential_accident_level
+  - predict_description
+  - out_of_scope
+  - hello_safebot
+
+responses:
+  utter_greet:
+  - text: "Hello, Greetings ! What can I do for you ?"
+
+  utter_did_that_help:
+  - text: "Did that help ?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am SafeBot."
+
+  utter_user_input_description:
+  - text: "Okay, please enter the accident description"
+
+  utter_want_search_again:
+  - text: "Please try again, please enter accident description"
+
+  utter_apology:
+  - text: "Apologies, please try again, please enter accident description"
+
+  utter_please_rephrase:
+  - text: "I'm sorry, I didn't quite understand that. Could you try again ?"
+
+  utter_out_of_scope:
+  - text: "Sorry, I can't handle that request. Will keep in mind and get back to you soon"
+
+  utter_welcome_message:
+  - text: "Hi, Welcome to Safebot. We intent to provide you with the industrial accident level for your query"
+
+
+actions:
+  - action_utter_prediction
+  - action_utter_welcome_message
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
